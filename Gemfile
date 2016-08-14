@@ -12,6 +12,9 @@ gem 'devise'
 #add gravatar support
 gem 'gravatarify', '~> 3.0.0'
 
+#activity tracking
+gem 'public_activity'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record

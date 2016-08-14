@@ -3,6 +3,13 @@ Rails.application.routes.draw do
   # get 'users/show'
   devise_for :users
   resources :users, only: [:show, :index]
+  resources :friendships, only: [:create, :destroy, :accept] do |member|
+      member do
+        put :accept
+      end
+  end
+  resources :posts, only: [:create, :update, :edit, :destroy]
+  resources :activities, only: [:index]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
