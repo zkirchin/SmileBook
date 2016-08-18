@@ -2,6 +2,14 @@ Rails.application.routes.draw do
   root 'welcome#index'
   devise_for :users
   resources :users, only: [:show, :index]
+  resources :friendships, only: [:create, :destroy, :accept] do 
+    member do 
+      put :accept
+    end
+  end
+  resources :posts, only: [:create, :edit, :update, :destroy]
+
+  get '/newsfeed' => 'activities#index', as: 'newsfeed'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
